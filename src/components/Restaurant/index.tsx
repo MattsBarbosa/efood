@@ -5,32 +5,41 @@ import Tag from '../Tag'
 import Button from '../Button'
 
 type Props = {
-  image: string
-  name: string
-  description: string
-  review: number
-  tags: string[]
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
 }
 
-const Restaurant = ({ image, name, description, review, tags }: Props) => (
+const Restaurant = ({
+  id,
+  titulo,
+  destacado = false,
+  tipo,
+  avaliacao,
+  descricao,
+  capa
+}: Props) => (
   <Card>
-    <img src={image} alt={name} />
+    <img src={capa} alt={titulo} />
     <Tags>
-      {tags.map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
-      ))}
+      {destacado && <Tag>Destaque da Semana</Tag>}
+      <Tag key={id}>{tipo}</Tag>
     </Tags>
     <Infos>
       <Head>
-        <h2>{name}</h2>
+        <h2>{titulo}</h2>
         <div>
-          <p>{review}</p>
+          <p>{avaliacao}</p>
           <img src={star} alt="star" />
         </div>
       </Head>
-      <Description>{description}</Description>
+      <Description>{descricao}</Description>
     </Infos>
-    <Button to="/profile">Saiba mais</Button>
+    <Button to={`/profile/${id}`}>Saiba mais</Button>
   </Card>
 )
 

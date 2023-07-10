@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
+import { Link } from 'react-router-dom'
 
 export const BackgroundImg = styled.div`
   width: 100%;
@@ -42,8 +43,8 @@ export const Nav = styled.nav`
   padding-top: 40px;
   align-items: center;
 `
-export const BackgroundProductImg = styled.div`
-  height: 318px;
-  background-size: cover;
-  background-repeat: no-repeat;
+
+export const LinksNav = styled(Link)`
+  text-decoration: none;
+  color: ${colors.lightPink};
 `

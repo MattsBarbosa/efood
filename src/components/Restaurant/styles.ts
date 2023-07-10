@@ -7,6 +7,13 @@ export const Card = styled.div`
   width: 472px;
   border: 1px solid ${colors.lightPink};
 
+  > img {
+    max-width: 100%;
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
+
   ${SButton} {
     margin: 0 0 8px 8px;
   }
