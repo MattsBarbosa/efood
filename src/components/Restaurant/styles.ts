@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import { SButton } from '../Button/styles'
+import { ButtonLink } from '../Button/styles'
 
 export const Card = styled.div`
   position: relative;
@@ -14,8 +14,11 @@ export const Card = styled.div`
     object-fit: cover;
   }
 
-  ${SButton} {
+  ${ButtonLink} {
     margin: 0 0 8px 8px;
+    width: 82px;
+    color: ${colors.whitePinkish};
+    background-color: ${colors.lightPink};
   }
 `
 export const Tags = styled.div`

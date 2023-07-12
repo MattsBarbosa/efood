@@ -1,4 +1,4 @@
-import { ButtonLink, SButton } from './styles'
+import { ButtonLink } from './styles'
 
 export type Props = {
   children: string
@@ -7,11 +7,9 @@ export type Props = {
 }
 
 const Button = ({ children, to, onClick }: Props) => (
-  <SButton>
-    <ButtonLink to={to as string} onClick={onClick}>
-      {children}
-    </ButtonLink>
-  </SButton>
+  <ButtonLink to={to as string} onClick={onClick}>
+    {children}
+  </ButtonLink>
 )
 
 export default Button
