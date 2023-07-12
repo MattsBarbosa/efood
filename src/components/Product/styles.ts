@@ -92,6 +92,8 @@ export const ModalContent = styled.div`
   }
 
   h3 {
+    font-size: 18px;
+    font-weight: bold;
     margin: 32px 0 16px 0;
   }
 
@@ -104,8 +106,16 @@ export const ModalContent = styled.div`
     background-color: ${colors.white};
     color: ${colors.lightPink};
     padding: 4px 8px;
+    margin-bottom: 60px;
+    font-size: 14px;
     font-weight: bold;
     border: none;
     cursor: pointer;
   }
+`
+
+export const Infos = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `

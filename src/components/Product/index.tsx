@@ -1,6 +1,14 @@
 import { useState } from 'react'
 
-import { Card, Description, Title, Img, Modal, ModalContent } from './styles'
+import {
+  Card,
+  Description,
+  Title,
+  Img,
+  Modal,
+  ModalContent,
+  Infos
+} from './styles'
 
 import Button from '../Button'
 import { Menu } from '../../pages/Profile'
@@ -35,13 +43,17 @@ const Product = ({ foto, nome, descricao, porcao, preco }: Menu) => {
           <div>
             <img src={foto} alt={nome} />
           </div>
-          <div>
-            <span onClick={() => setModal({ isVisible: false })}>X</span>
-            <h3>{nome}</h3>
-            <p>{descricao}</p>
-            <p>{porcao}</p>
-            <button>Adicionar ao carrinho - R$ ${preco}</button>
-          </div>
+          <Infos>
+            <div>
+              <span onClick={() => setModal({ isVisible: false })}>X</span>
+              <h3>{nome}</h3>
+              <p>{descricao}</p>
+            </div>
+            <div>
+              <p>Serve: de {porcao}</p>
+              <button>Adicionar ao carrinho - R$ ${preco}</button>
+            </div>
+          </Infos>
         </ModalContent>
         <div
           className="overlay"
