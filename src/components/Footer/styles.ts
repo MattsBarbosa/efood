@@ -11,7 +11,11 @@ export const SFooter = styled.footer`
   align-items: center;
 
   p {
+    font-size: 10px;
     margin-bottom: 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
   }
 `
 
