@@ -120,7 +120,7 @@ export const ModalContent = styled.div`
   }
 
   button {
-    background-color: ${colors.white};
+    background-color: ${colors.whitePinkish};
     color: ${colors.lightPink};
     padding: 4px 8px;
     margin-bottom: 60px;
