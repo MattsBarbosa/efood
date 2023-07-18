@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { close, remove } from '../../store/reducers/cart'
+import { close, remove, openOrder } from '../../store/reducers/cart'
 
 import { RootReducer } from '../../store'
 import {
@@ -25,12 +25,10 @@ const formataPreco = (preco = 0) => {
 
 const Cart = () => {
   const { items, isOpen } = useSelector((state: RootReducer) => state.cart)
-
   const dispatch = useDispatch()
 
   const getTotalPrice = () => {
     return items.reduce((acumulador, comida) => {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return (acumulador += comida.preco!)
     }, 0)
   }
@@ -41,6 +39,11 @@ const Cart = () => {
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  const openOrderAction = () => {
+    dispatch(openOrder())
+    dispatch(close())
   }
 
   return (
@@ -68,7 +71,7 @@ const Cart = () => {
             <p>Valor total</p>
             <p>{formataPreco(getTotalPrice())}</p>
           </TotalPrice>
-          <Button>Continuar com a entrega</Button>
+          <Button onClick={openOrderAction}>Continuar com a entrega</Button>
         </SideBar>
       </CartContainer>
     </>

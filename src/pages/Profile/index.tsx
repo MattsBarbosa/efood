@@ -4,6 +4,8 @@ import Header from '../../components/Header'
 import ProductList from '../../container/ProductList'
 import Hero from '../../components/Hero'
 import { useGetProfileQuery } from '../../services/api'
+import Cart from '../../components/Cart'
+import Checkout from '../../components/Checkout'
 
 export type Menu = {
   id: number
@@ -16,7 +18,6 @@ export type Menu = {
 
 const Profile = () => {
   const { id } = useParams()
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { data: restaurant } = useGetProfileQuery(id!)
 
   if (!restaurant) {
@@ -28,6 +29,8 @@ const Profile = () => {
       <Header category="profile" />
       <Hero restaurant={restaurant} />
       <ProductList products={restaurant.cardapio} />
+      <Cart />
+      <Checkout />
     </>
   )
 }
