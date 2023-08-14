@@ -13,7 +13,7 @@ import { Overlay, SideBar } from '../Cart/styles'
 import { closeOrder, open } from '../../store/reducers/cart'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePurchaseMutation } from '../../services/api'
 
 const Checkout = () => {
@@ -121,7 +121,7 @@ const Checkout = () => {
   }
 
   const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
+    return items.reduce((acumulador: any, valorAtual: { preco: any }) => {
       return (acumulador += valorAtual.preco)
     }, 0)
   }
@@ -134,6 +134,12 @@ const Checkout = () => {
 
     return hasError
   }
+
+  useEffect(() => {
+    if (data?.orderId) {
+      setPagamentoConcluido(true)
+    }
+  }, [data?.orderId])
 
   return (
     <>
@@ -218,7 +224,11 @@ const Checkout = () => {
                 </section>
               ) : (
                 <section>
-                  <Title>Pagamento - Valor a pagar R$ {getTotalPrice()}</Title>
+                  <Title>
+                    <>
+                      Pagamento - Valor a pagar R$ {getTotalPrice().toFixed(2)}
+                    </>
+                  </Title>
                   <label htmlFor="cardOwner">Nome no cartão</label>
                   <input
                     id="cardOwner"
